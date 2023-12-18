@@ -20,6 +20,12 @@ public class GeneradorDeRanking {
   }
 
   public List<Entidad> entidadesConMayorCantidadDeIncidentes(){
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().size());
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(1).getIncidentes().size());
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(2).getIncidentes().size());
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(3).getIncidentes().size());
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(4).getIncidentes().size());
+
     List<Entidad> entidadesOrdenadas = RepositorioEntidades.getInstance().getEntidades().stream()
         .sorted(Comparator.comparingInt(Entidad::cantidadIncidentesEnLaSemana).reversed())
         .collect(Collectors.toList());
