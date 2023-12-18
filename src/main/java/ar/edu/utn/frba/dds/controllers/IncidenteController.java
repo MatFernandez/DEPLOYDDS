@@ -69,22 +69,22 @@ public class IncidenteController extends Controller implements ICrudViewsHandler
       // PRUEBAS GENERALES DE OTRAS PANTALLAS POR COMODIDAD
 
 
-      System.out.println(RepositorioEntidades.getInstance().getEntidades().size() + "KLLLÑKLLÑLÑLLLÑLLÑLÑLLÑÑ");
-      System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().size() + "INCIDENTESS");
+      //System.out.println(RepositorioEntidades.getInstance().getEntidades().size() + "KLLLÑKLLÑLÑLLLÑLLÑLÑLLÑÑ");
+      //System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().size() + "INCIDENTESS");
 
-      Entidad lineaA=RepositorioEntidades.getInstance().getEntidades().stream().filter(entidad -> entidad.getId() == 89).toList().get(0);
-      System.out.println(lineaA.getIncidentes().size() + "INCIDENTES DE LA LINEA AAAAA");
+      //Entidad lineaA=RepositorioEntidades.getInstance().getEntidades().stream().filter(entidad -> entidad.getId() == 89).toList().get(0);
+      //System.out.println(lineaA.getIncidentes().size() + "INCIDENTES DE LA LINEA AAAAA");
 
 
-      Calendar calendar = Calendar.getInstance();
-      int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;
-      System.out.println(semanaDelAnioActual + "SEMANA DEL AÑO ACTUALL");
+      //Calendar calendar = Calendar.getInstance();
+      //int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;
+      //System.out.println(semanaDelAnioActual + "SEMANA DEL AÑO ACTUALL");
 
-      List<Integer> semanas = lineaA.getIncidentes().stream().map(incidente -> incidente.getFechaApertura().get(WeekFields.ISO.weekOfYear())).toList();
-      System.out.println(semanas.get(0) + " " +"SEMANA DEL INCIDENTE 1");
-      System.out.println(semanas.get(1) + " " +"SEMANA DEL INCIDENTE 2");
-      System.out.println(semanas.get(2) + " " +"SEMANA DEL INCIDENTE 3");
-      System.out.println(semanas.get(3) + " " +"SEMANA DEL INCIDENTE 4");
+     // List<Integer> semanas = lineaA.getIncidentes().stream().map(incidente -> incidente.getFechaApertura().get(WeekFields.ISO.weekOfYear())).toList();
+      //System.out.println(semanas.get(0) + " " +"SEMANA DEL INCIDENTE 1");
+      //System.out.println(semanas.get(1) + " " +"SEMANA DEL INCIDENTE 2");
+      //System.out.println(semanas.get(2) + " " +"SEMANA DEL INCIDENTE 3");
+      //System.out.println(semanas.get(3) + " " +"SEMANA DEL INCIDENTE 4");
 
     }
 
