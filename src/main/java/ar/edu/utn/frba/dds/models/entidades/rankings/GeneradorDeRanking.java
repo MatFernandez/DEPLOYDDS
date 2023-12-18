@@ -15,14 +15,16 @@ public class GeneradorDeRanking {
         .collect(Collectors.toList());
     System.out.println(entidadesOrdenadas.get(0).getNombre() + " " + "ENTIDAD DEL RANKING");
     System.out.println(entidadesOrdenadas.get(0).promedioCierreIncidentesEnMinutos() + " " + "PROMEDIO CIERRE");
-    return this.primerosTres(entidadesOrdenadas);
+    //return this.primerosTres(entidadesOrdenadas);
+    return entidadesOrdenadas;
   }
 
   public List<Entidad> entidadesConMayorCantidadDeIncidentes(){
     List<Entidad> entidadesOrdenadas = RepositorioEntidades.getInstance().getEntidades().stream()
         .sorted(Comparator.comparingInt(Entidad::cantidadIncidentesEnLaSemana).reversed())
         .collect(Collectors.toList());
-    return this.primerosTres(entidadesOrdenadas);
+    //return this.primerosTres(entidadesOrdenadas);
+        return entidadesOrdenadas;
 
   }
 
@@ -31,7 +33,8 @@ public class GeneradorDeRanking {
     List<Entidad> entidadesOrdenadas = RepositorioEntidades.getInstance().getEntidades().stream()
         .sorted(Comparator.comparingInt(Entidad::gradoDeProblematica).reversed())
         .collect(Collectors.toList());
-    return this.primerosTres(entidadesOrdenadas);
+    //return this.primerosTres(entidadesOrdenadas);
+        return entidadesOrdenadas;
 
   }
 
