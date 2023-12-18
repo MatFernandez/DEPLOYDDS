@@ -5,6 +5,7 @@ import ar.edu.utn.frba.dds.models.entidades.serviciosapi.Localizacion;
 import ar.edu.utn.frba.dds.models.entidades.serviciosapi.LocalizacionAsignada;
 import ar.edu.utn.frba.dds.models.entidades.incidentes.Incidente;
 import ar.edu.utn.frba.dds.models.entidades.operadorFechas.operadorFechas;
+import ar.edu.utn.frba.dds.models.repositorios.RepositorioEntidades;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
@@ -13,6 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.print.attribute.standard.MediaSize;
 import java.io.IOException;
 import java.time.temporal.WeekFields;
 import java.util.Calendar;
@@ -101,8 +103,11 @@ public class Entidad extends Persistente {
     return  this.incidentesDeLaSemana().stream().mapToInt(Incidente::cantidadAfectados).sum();
   }
   public List<Incidente> incidentesDeLaSemana(){
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().get(0).getFechaApertura() +" " + "FECHA DE APERTURA DEL PRIMER INCIDENTE DE LA PRIMERA ENTIDAD");
     Calendar calendar = Calendar.getInstance();
     int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;
+    System.out.println(semanaDelAnioActual + "SEMANA DEL AÑO ACTUAL SEGUN CALENDAR");
+    System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().get(0).getFechaApertura().get(WeekFields.ISO.weekOfYear()) + "SEMANA DEL INCIDNETE SEGUN WEEKFIELDS" );
     List<Incidente> incidentesFiltrados = this.incidentes.stream().filter(i->i.getFechaApertura().get(WeekFields.ISO.weekOfYear())==semanaDelAnioActual).collect(Collectors.toList());
     //System.out.println(incidentes.get(0).getFechaApertura().get(WeekFields.ISO.weekOfYear()) + "SEMANA DEL INCIDENTE");
     return  incidentesFiltrados;
