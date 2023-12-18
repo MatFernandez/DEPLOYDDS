@@ -105,11 +105,11 @@ public class Entidad extends Persistente {
   public List<Incidente> incidentesDeLaSemana(){
     System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().get(0).getFechaApertura() +" " + "FECHA DE APERTURA DEL PRIMER INCIDENTE DE LA PRIMERA ENTIDAD");
     Calendar calendar = Calendar.getInstance();
-    int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;
+    //int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;   PARA CORRER LOCAL X SISTEMA OPERATIVO
+    int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR);         //PARA CORRER EN RENDER
     System.out.println(semanaDelAnioActual + "SEMANA DEL AÑO ACTUAL SEGUN CALENDAR");
     System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().get(0).getFechaApertura().get(WeekFields.ISO.weekOfYear()) + "SEMANA DEL INCIDNETE SEGUN WEEKFIELDS" );
     List<Incidente> incidentesFiltrados = this.incidentes.stream().filter(i->i.getFechaApertura().get(WeekFields.ISO.weekOfYear())==semanaDelAnioActual).collect(Collectors.toList());
-    //System.out.println(incidentes.get(0).getFechaApertura().get(WeekFields.ISO.weekOfYear()) + "SEMANA DEL INCIDENTE");
     return  incidentesFiltrados;
   }
 
