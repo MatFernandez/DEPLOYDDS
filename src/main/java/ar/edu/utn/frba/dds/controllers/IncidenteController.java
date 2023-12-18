@@ -72,8 +72,9 @@ public class IncidenteController extends Controller implements ICrudViewsHandler
       System.out.println(RepositorioEntidades.getInstance().getEntidades().size() + "KLLLÑKLLÑLÑLLLÑLLÑLÑLLÑÑ");
       System.out.println(RepositorioEntidades.getInstance().getEntidades().get(0).getIncidentes().size() + "INCIDENTESS");
 
-      Entidad lineaA=RepositorioEntidades.getInstance().getEntidades().stream().filter(entidad -> entidad.getId() == 53).toList().get(0);
+      Entidad lineaA=RepositorioEntidades.getInstance().getEntidades().stream().filter(entidad -> entidad.getId() == 89).toList().get(0);
       System.out.println(lineaA.getIncidentes().size() + "INCIDENTES DE LA LINEA AAAAA");
+
 
       Calendar calendar = Calendar.getInstance();
       int semanaDelAnioActual = calendar.get(Calendar.WEEK_OF_YEAR) - 1;
